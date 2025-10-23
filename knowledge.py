@@ -32,18 +32,3 @@ def initialize_knowledge_graph(metta: MeTTa):
     metta.space().add_atom(E(S("treatment"), S("antidepressants"), ValueAtom("therapy, medications"))) # here it seems the ValueAtom is used because the target is multi value, but it isn't the correct way of multi-value targets since the target value will be sparsed when retrieving them targets later correctly. The recommended way to store multi-value is using an E(Expression). Just to mention, Expression in MeTTa can be used both for storing triplets(i.e relation-subject-object), and also as a list collaction of values, symbols in MeTTa.
     # Using Expression for multi-value target
     metta.space().add_atom(E(S("treatment"), S("antidepressants"), E(S("therapy"), S("medications")))) # This way when running pattern matching query later, you will get both "therapy" and "medications" as target values correctly.
-
-# My guess this part of the code from repo
-
-#  !(match &self (capability $x $y) ($x $y))
-
-# Matches metta atom, capability uAgent Rest_endpoints
-# Metta reads that file and then runs each space().add like below to create the knowledge base?
-
-#  metta.space().add_atom(E(S("capability uAgent Rest_entpoints"), S("uAgent"), S("Rest_endpoints")))
-
-# Is this correct cause in the medical example there is also a line using  ValueAtom():
-
-# metta.space().add_atom(E(S("treatment"), S("antidepressants"), ValueAtom("therapy, medications")))  
-
-# how would that fit in that example?
