@@ -1,8 +1,5 @@
 from hyperon import MeTTa, E, S, ValueAtom
 
-metta = MeTTa()
-
-
 def write_to_file(filename, text):
     """Write the given text to a file."""
     with open(filename, "a") as file:
